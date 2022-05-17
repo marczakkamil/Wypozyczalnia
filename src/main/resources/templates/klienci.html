@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+ 
+<title>Lista Klientów</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+
+<body>
+    <div class="Container text-center">
+<div><h1>Klienci</h1></div>
+
+<div>
+<table class="table table-bordered" >
+<thead class="thead-dark">
+<tr>
+	<th>ID</th>
+	<th>DANE KLIENTA</th>
+	<th> </th>
+</tr>
+
+</thead>
+<tbody>
+<th:block th:each="klienci :${listaKlientow}">
+<tr>
+<td>[[${klienci.id}]]</td>
+<td>[[${klienci.name}]]</td>
+<td >
+
+<a th:href="@{'klienci/delete/'+ ${klienci.id}}">USUŃ</a>
+</td>
+
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</body>
+
+</html>
